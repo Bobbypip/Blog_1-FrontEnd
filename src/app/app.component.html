@@ -11,7 +11,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+          <a class="nav-link" [routerLink]="['inicio']">Inicio<span class="sr-only">(current)</span></a>
+          <!--[routerLink]=""[/'ruta'], Enlace dinamico-->
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Categorias</a>
@@ -20,10 +21,10 @@
 
       <ul class="navbar-nav navbar-right">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" [routerLink]="['/login']">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Registro</a>
+          <a class="nav-link" [routerLink]="['/registro']">Registro</a>
         </li>
       </ul>
 
@@ -47,7 +48,7 @@
   </nav><!--Cerrar barra de navegacion-->
 
   <!--Contenido-->
-  <login></login>
+  <router-outlet></router-outlet><!--Carga las rutas-->
 
 </div><!--Cerrar contenedor principal-->
   

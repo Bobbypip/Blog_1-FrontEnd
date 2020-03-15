@@ -1,19 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; //Para usar formularios y 2wayDB
+import { HttpClientModule } from '@angular/common/http'; //Para comunicarse con el servidor por medio del protocolo de HTTP
+import { routing, appRoutingProviders } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { ErrorComponent } from './components/error/error.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    ErrorComponent,
   ],
   imports: [
-    BrowserModule
+    //Aqui se cargan los modulos
+    BrowserModule,
+    routing,
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    //Aqui se cargan los servicios
+    appRoutingProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
