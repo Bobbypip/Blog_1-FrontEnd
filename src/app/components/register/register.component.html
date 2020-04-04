@@ -37,7 +37,7 @@
                 <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">El nombre no es válido</small>
             </div>
             <div class="form-group">
-                <label for="password">Nombre</label>
+                <label for="password">Password</label>
                 <input type="password" name="password" class="form-control" #password="ngModel" [(ngModel)]=user.password required>
                 <small *ngIf="!password.valid && password.touched" class="invalid-feedback d-block">La contraseña no es valida</small>
             </div>
