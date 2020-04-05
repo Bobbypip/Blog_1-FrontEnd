@@ -46,6 +46,8 @@ export class UserService{
 
         if(identity && identity != "undefined"){
             this.identity = identity;
+        }else{
+            this.identity = null;
         }
 
         return this.identity;
@@ -56,8 +58,10 @@ export class UserService{
 
         if(token && token != "undefined"){
             this.token = token;
+        }else{
+            this.token =  null;
         }
 
-        return this.identity;
+        return this.token;
     }
 }
