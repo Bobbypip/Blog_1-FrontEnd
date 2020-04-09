@@ -1,0 +1,64 @@
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<div class="col-md-12 mt-3">
+    <h1>{{page_title}}</h1>
+        <p *ngIf="status != 'success'">
+            Modifica tus datos personales de usuario.
+        </p>
+        <hr/>
+
+        <div class="alert alert-success col-md-5" *ngIf="status == 'success'">
+            Los datos se ha guardado correctamente !!
+        </div>
+
+        <div class="alert alert-danger col-md-5" *ngIf="status == 'error'"> 
+            Los datos no se han guardado !!
+        </div>
+
+        <!--Formulario de ajustes-->
+        <form class="col-md-5 ml-0 pl-0" #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)"><!--# sirve para definir una variable dentro de la vista, ngForm es un formulario de Angular-->
+                                                                                                    <!--(ngSubmit) es el submit del fomulario de Angular-->
+                                                                                                    <!--onSubmit(registerForm), onSubmit() es el metodo que se va a ejecutar en register.component.ts una vez que al formulario se le de submit-->
+                                                                                                    <!--resgisterForm, son los datos que se le van a pasar al objeto User-->
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" class="form-control" #name="ngModel" 
+                [(ngModel)]=user.name required pattern="[a-zA-Z]+">
+                <!--#name es el nombre del campo del formulario de angular-->
+                <!--ngModel es palabra reservada, significa que va a modifical las propiedades de la instancia de algun modelo 2wayDB-->
+                <!--[(ngModel)]=user.name significa que va a modificar la propiedad 'name' de un una instancia del modelo 'user' -->
+                <small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">El nombre no es válido</small>
+            </div>
+            <div class="form-group">
+                <label for="surname">Apellidos</label>
+                <input type="text" name="surname" class="form-control" #surname="ngModel" [(ngModel)]=user.surname required pattern="[a-zA-Z]+">
+                <small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">Los apeliidos no son válidos</small>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" #email="ngModel" [(ngModel)]=user.email required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">El nombre no es válido</small>
+            </div>
+            <div class="form-group">
+                <label for="description">Biografía</label>
+                <textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel" [(ngModel)]=user.description></textarea>
+            </div>
+            <div class="form-group">
+                <label for="image">Avatar</label>
+                <!--
+                <div *ngIf="identity && identity.image">
+                    <img src="{{url + 'user/avatar' + identity.image}}" />
+                </div>
+                -->
+                <angular-file-uploader
+                    [config]="afuConfig"
+                    [resetUpload]=resetVar
+                    (ApiResponse)="avatarUpload($event)"><!--Evento que se produce una vez que se cargue y se envie una imagen al servidor-->
+                </angular-file-uploader>
+            </div>
+
+            <input type="submit" value="Guardar cambios" class="btn btn-success" [disabled]="userEditForm.invalid"/>
+        </form>
+</div>

@@ -20,7 +20,7 @@ export class UserService{
         return "Hola mundo desde un servicio";
     }
 
-    register(user): Observable<any>{
+    register(user): Observable<any>{ // El tipo de dato que devolvera una peticion sera un Observable<any>, esto permitira leer 'response' y leer las propiedades changes y status
         let json = JSON.stringify(user);
         let params = 'json='+json;
 
@@ -39,6 +39,18 @@ export class UserService{
         let headers = new HttpHeaders().set('Content-type', 'application/x-www-form-urlencoded');
 
         return this._http.post(this.url+'login', params, {headers: headers});
+    }
+
+    update(token, user): Observable<any>{
+        let jason = JSON.stringify(user);
+        let params = 'json='+jason;
+                    //'name de la variable por POST'=+'valor'
+        
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+                                       .set('Authorization', token);
+
+        return this._http.put(this.url + 'user/update', params, {headers: headers});
+                                                              //Objeto JSON {nombre: variable}
     }
 
     getIdentity(){
