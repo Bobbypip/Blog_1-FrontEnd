@@ -25,6 +25,9 @@ export class AppComponent implements OnInit, DoCheck{
     console.log('Webapp cargada correctamente');
   }
 
+  //Se usa el metodo DoCheck ya que no hay que vigile el LocalStorage, donde se almacenan los datos del usuario para persistencia,
+  //una vez que se hacen los cambios en el LocalStorage el metodo ngDoCheck se ejecuta asignando los valores del usuario a la propiedad 
+  //identity para que se muestren en la pagina automaticamente, sin necesidad de regescarla.
   ngDoCheck(){
     this.loadUser();
   }

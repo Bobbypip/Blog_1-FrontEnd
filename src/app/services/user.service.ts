@@ -42,8 +42,8 @@ export class UserService{
     }
 
     update(token, user): Observable<any>{
-        let jason = JSON.stringify(user);
-        let params = 'json='+jason;
+        let json = JSON.stringify(user);
+        let params = 'json='+json;
                     //'name de la variable por POST'=+'valor'
         
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
