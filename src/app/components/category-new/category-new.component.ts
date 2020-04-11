@@ -26,7 +26,6 @@ export class CategoryNewComponent implements OnInit {
     this.page_title = 'Crear nueva categoria';
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
-    console.log(this.token);
     this.category = new Category(1,'');
   }
 

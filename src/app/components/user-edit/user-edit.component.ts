@@ -40,7 +40,7 @@ export class UserEditComponent implements OnInit {
     hideResetBtn: true,
     hideSelectBtn: true,
     attachPinText: 'Sube tu avatar de usuario'
-};
+  };
 
   constructor(
     private _userService: UserService
