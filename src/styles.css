@@ -9,3 +9,8 @@
 .avatar_mask img{
     width: 40px;
 }
+
+.post_image{
+    height:  200px;
+    overflow: hidden;
+}

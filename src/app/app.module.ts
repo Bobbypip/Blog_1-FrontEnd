@@ -14,6 +14,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { CategoryNewComponent } from './components/category-new/category-new.component';
 import { PostNewComponent } from './components/post-new/post-new.component';
+import { NgxPopper } from 'angular-popper';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { PostNewComponent } from './components/post-new/post-new.component';
     HttpClientModule,
     FroalaEditorModule.forRoot(),// Import de Froala, editor de texto enriquecido
     FroalaViewModule.forRoot(),// Import de Froala, editor de texto enriquecido
-    AngularFileUploaderModule,// Import para subir archivos
+    AngularFileUploaderModule, NgxPopper,// Import para subir archivos
   ],
   providers: [
     //Aqui se cargan los servicios
