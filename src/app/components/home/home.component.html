@@ -7,47 +7,32 @@
 
 <div class="container">
     <h2 class="mb-4">Categorias disponibles</h2>
-    <div class="card-columns" *ngIf="posts">
-        <div class="card md-light" *ngFor="let post of posts">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3" *ngIf="posts">
+        <div class="col" *ngFor="let post of posts">
+            <div class="card md-light pl-0 pr-0 mb-2" >
 
-            <div class="post_image" *ngIf="post.image">
-                <img src="{{ url + 'post/image/' + post.image}}" class="w-100" alt="...">
-            </div>
-            <div class="post_image" *ngIf="!post.image">
-                <img src="../../../assets/images/default-image.jpg" class="w-100" alt="...">
-            </div>
+                <div class="post_image" *ngIf="post.image">
+                    <img src="{{ url + 'post/image/' + post.image}}" class="card-img-top" alt="...">
+                </div>
+                <div class="post_image" *ngIf="!post.image">
+                    <img src="../../../assets/images/default-image.jpg" class="w-100" alt="...">
+                </div>
+    
+                <div class="card-body">
+                    <h5 class="card-title d-inline flaot-left"><a class="text-decoration-none text-body" [routerLink]="['/inicio']">{{post.title}}</a></h5>
 
-            <div class="card-body">
-                <h5 class="card-title text-center" ><a class="text-decoration-none text-body" [routerLink]="['/inicio']">{{post.title}}</a></h5>
-            </div>
-
-            <div class="card-footer">
-                <div class="dropdown">
-                    <button class="btn btn-sm-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a [routerLink]="['/inicio']" class="dropdown-item" >Leer</a>
-                        <a [routerLink]="['/inicio']" class="dropdown-item" >Editar</a>
-                        <a [routerLink]="['/inicio']" class="dropdown-item" >Borrar</a>
+                    <div class="dropdown d-inline float-right">
+                        <button class="btn btn-sm-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a [routerLink]="['/inicio']" class="dropdown-item" >Leer</a>
+                            <a [routerLink]="['/inicio']" class="dropdown-item" >Editar</a>
+                            <a [routerLink]="['/inicio']" class="dropdown-item" >Borrar</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>
-
-<div class="container">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-      <div class="col">Column</div>
-      <div class="col">Column</div>
-      <div class="col">Column</div>
-      <div class="col">Column</div>
-      <div class="col">Column</div>
-      <div class="col">Column</div>
-      <div class="col">Column</div>
-      <div class="col">Column</div>
-    </div>
-</div>
-
 
