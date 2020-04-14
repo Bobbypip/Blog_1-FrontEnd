@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../../models/post';
 import { PostService } from '../../services/post.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-post-detail',
@@ -20,14 +21,6 @@ export class PostDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getPost();
-    this.content();
-  }
-
-  content(){
-    $( document ).ready(function() {
-      console.log( "ready!" );
-      $("#content").append("dsd");
-  });
   }
 
   getPost(){
@@ -41,8 +34,12 @@ export class PostDetailComponent implements OnInit {
           response => {
             if(response.status == 'success'){
               this.post = response.posts;
-              console.log(this.post.content);
-              console.log(typeof(response.posts.content));
+              let content = this.post.content;
+
+              $(document).ready(function() {
+                $( "#content" ).append( content );
+              });
+
             }else{
               this._router.navigate(['/inicio']);
             }
