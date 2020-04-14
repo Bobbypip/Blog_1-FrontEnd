@@ -19,15 +19,18 @@
                 </div>
     
                 <div class="card-body">
-                    <h5 class="card-title d-inline flaot-left"><a class="text-decoration-none text-body" [routerLink]="['/inicio']">{{post.title}}</a></h5>
+                    <h5 class="card-title d-inline flaot-left"><a class="text-decoration-none text-body" [routerLink]="['/entrada', post.id]">{{post.title}}</a></h5>
 
                     <div class="dropdown d-inline float-right">
                         <button class="btn btn-sm-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a [routerLink]="['/inicio']" class="dropdown-item" >Leer</a>
-                            <a [routerLink]="['/inicio']" class="dropdown-item" >Editar</a>
-                            <a [routerLink]="['/inicio']" class="dropdown-item" >Borrar</a>
+                            <a [routerLink]="['/entrada', post.id]" class="dropdown-item" >Leer</a>
+
+                            <span *ngIf="identity && identity.sub == post.user_id">
+                                <a [routerLink]="['/inicio']" class="dropdown-item" >Editar</a>
+                                <a [routerLink]="['/inicio']" class="dropdown-item" >Borrar</a>
+                            </span>
                         </div>
                     </div>
                 </div>

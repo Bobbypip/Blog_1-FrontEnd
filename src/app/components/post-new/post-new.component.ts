@@ -44,7 +44,7 @@ export class PostNewComponent implements OnInit {
     hideProgressBar: false,
     hideResetBtn: true,
     hideSelectBtn: true,
-    attachPinText: 'Sube tu avatar de usuario'
+    attachPinText: 'Sube tu imagen de entrada'
   };
 
   constructor(
