@@ -3,6 +3,7 @@ import { Post } from '../../models/post';
 import { PostService } from '../../services/post.service';
 import { UserService } from '../../services/user.service';
 import { global } from  '../../services/global';
+import { error } from 'protractor';
 
 @Component({
   selector: 'app-home',
@@ -37,6 +38,17 @@ export class HomeComponent implements OnInit {
         if(response.status == 'success'){
           this.posts = response.posts;
         }
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
+
+  deletePost(id){
+    this._postService.delete(this.token, id).subscribe(
+      response => {
+        this.getPosts();
       },
       error => {
         console.log(error);
