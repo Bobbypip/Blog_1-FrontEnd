@@ -28,7 +28,7 @@
                             <a [routerLink]="['/entrada', post.id]" class="dropdown-item" >Leer</a>
 
                             <span *ngIf="identity && identity.sub == post.user_id">
-                                <a [routerLink]="['/inicio']" class="dropdown-item" >Editar</a>
+                                <a [routerLink]="['/editar-entrada', post.id]" class="dropdown-item" >Editar</a>
                                 <a [routerLink]="['/inicio']" class="dropdown-item" >Borrar</a>
                             </span>
                         </div>

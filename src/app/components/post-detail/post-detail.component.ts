@@ -49,7 +49,6 @@ export class PostDetailComponent implements OnInit {
             this._router.navigate(['/inicio']);
           }
         )
-
       }
     );
   }
