@@ -19,6 +19,9 @@ export class PostService {
     }
 
     create(token, post): Observable<any>{
+        //Limpiar campo content (editor texto enriquecido) htmlEntities > utf-8
+        post.content = global.htmlEntities(post.content);
+
         let json = JSON.stringify(post);//Convierte un objeto javascript a un formato json, pero es un string, porque es la menera
                                         //de enviar datos por Http
         let params = "json="+json;
@@ -41,6 +44,9 @@ export class PostService {
     }
 
     update(token, post, id): Observable<any>{
+        //Limpiar campo content (editor texto enriquecido) htmlEntities > utf-8
+        post.content = global.htmlEntities(post.content);
+
         let json = JSON.stringify(post);
         console.log(json);
         let params = "json="+json;
