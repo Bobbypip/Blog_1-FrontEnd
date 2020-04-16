@@ -17,6 +17,7 @@ import { PostNewComponent } from './components/post-new/post-new.component';
 import { NgxPopper } from 'angular-popper';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { PostEditComponent } from './components/post-edit/post-edit.component';
+import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { PostEditComponent } from './components/post-edit/post-edit.component';
     PostNewComponent,
     PostDetailComponent,
     PostEditComponent,
+    CategoryDetailComponent,
   ],
   imports: [
     //Aqui se cargan los modulos

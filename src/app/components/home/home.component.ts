@@ -3,7 +3,6 @@ import { Post } from '../../models/post';
 import { PostService } from '../../services/post.service';
 import { UserService } from '../../services/user.service';
 import { global } from  '../../services/global';
-import { error } from 'protractor';
 
 @Component({
   selector: 'app-home',
