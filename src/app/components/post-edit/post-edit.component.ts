@@ -76,9 +76,6 @@ export class PostEditComponent implements OnInit {
         this._postService.getPost(id).subscribe(
           response => {
             if(response.status == 'success'){
-              //this.post = response.posts;
-
-              console.log(response.posts);
 
               this.post.id = response.posts.id;
               this.post.user_id = response.posts.user_id;
@@ -88,16 +85,9 @@ export class PostEditComponent implements OnInit {
               this.post.image = response.posts.image;
               this.post.created_at = response.posts.created_at;
 
-              console.log(this.post);
-              /*
-              public id: number,
-              public user_id: string,
-              public category_id: number,
-              public title:string,
-              public content: string,
-              public image: string,
-              public createdAt: any
-              */
+              if(this.post.user_id != this.identity.sub){
+                this._router.navigate(['/inicio']);
+              }
 
               let content = this.post.content;
 

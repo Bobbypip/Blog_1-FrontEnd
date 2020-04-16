@@ -19,6 +19,10 @@ import { PostDetailComponent } from './components/post-detail/post-detail.compon
 import { PostEditComponent } from './components/post-edit/post-edit.component';
 import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
 
+//Importar guard
+import { IdentityGuard } from './services/identity.guard';
+import { UserService } from './services/user.service';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +50,9 @@ import { CategoryDetailComponent } from './components/category-detail/category-d
   ],
   providers: [
     //Aqui se cargan los servicios
-    appRoutingProviders
+    appRoutingProviders,
+    IdentityGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
