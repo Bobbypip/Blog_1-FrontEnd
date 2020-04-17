@@ -22,6 +22,7 @@
         <form class="container" #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)"><!--# sirve para definir una variable dentro de la vista, ngForm es un formulario de Angular-->
                                                                                             <!--(ngSubmit) es el submit del fomulario de Angular-->
            <div class="row">
+
                 <div class="col-md-7">
                     <div class="form-group">
                         <label for="name">Nombre</label>
@@ -47,6 +48,7 @@
                         <textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel" [(ngModel)]=user.description></textarea>
                     </div>
                 </div>
+
                 <div class="col-md-5">
                     <div class="form-group">
                         <label for="image">Avatar</label>
@@ -59,7 +61,8 @@
                             (ApiResponse)="avatarUpload($event)"><!--Evento que se produce una vez que se cargue y se envie una imagen al servidor-->
                         </angular-file-uploader>
                     </div>
-                </div>           
+                </div>
+                           
            </div>
             <!--onSubmit(registerForm), onSubmit() es el metodo que se va a ejecutar en register.component.ts una vez que al formulario se le de submit-->
             <!--resgisterForm, son los datos que se le van a pasar al objeto User-->  

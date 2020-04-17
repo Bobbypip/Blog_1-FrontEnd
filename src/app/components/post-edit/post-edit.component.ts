@@ -20,6 +20,7 @@ export class PostEditComponent implements OnInit {
   public categories;
   public status;
   public is_edit: boolean;
+  public url: string;
 
   public froala_options: Object = {
     charCounterCount: true,
@@ -57,10 +58,10 @@ export class PostEditComponent implements OnInit {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.is_edit = true;
+    this.url = global.url;
    }
 
   ngOnInit() {
-    console.log(this.token);
     this.getCategories();
     this.post = new Post(1, this.identity.sub, 1, '', '', null, null);
     this.getPost();
