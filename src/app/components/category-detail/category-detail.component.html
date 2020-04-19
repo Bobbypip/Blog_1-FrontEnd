@@ -17,74 +17,11 @@
             No hay entradas que mostrar
         </div>
     
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3" *ngIf="posts && posts.length >= 1">
-            
-            <!-- Entrada individual -->
-            <div class="col" *ngFor="let post of posts">
-    
-                <!-- Modal -->
-                <div class="modal" id="{{ 'myModal' + post.id }}">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-    
-                            <!-- Modal header -->
-                            <div class="modal-header">
-                                <h5 class="modal-title">Estas seguro de borrar esta entrada?</h5>
-                                <button type="button" class="close" data-dismiss="modal">
-                                    &times;
-                                </button>
-                              </div>
-    
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Vas a borrar definitivamente: {{post.title}}
-                            </div>
-    
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="button" (click)="deletePost(post.id)" data-dismiss="modal" class="btn btn-primary">Borrar</button>
-                            </div>
-    
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="card md-light pl-0 pr-0 mb-2" >
-    
-                    <div class="post_image" *ngIf="post.image">
-                        <img src="{{ url + 'post/image/' + post.image}}" class="card-img-top" alt="...">
-                    </div>
-                    <div class="post_image" *ngIf="!post.image">
-                        <img src="../../../assets/images/default-image.jpg" class="w-100" alt="...">
-                    </div>
-        
-                    <div class="card-body">
-                        <h5 class="card-title d-inline flaot-left"><a class="text-decoration-none text-body" [routerLink]="['/entrada', post.id]">{{post.title}}</a></h5>
-    
-                        <div class="dropdown d-inline float-right">
-                            <button class="btn btn-sm-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a [routerLink]="['/entrada', post.id]" class="dropdown-item" >Leer</a>
-    
-                                <span *ngIf="identity && identity.sub == post.user_id">
-                                    <a [routerLink]="['/editar-entrada', post.id]" class="dropdown-item" >Editar</a>
-    
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="dropdown-item" data-toggle="modal" [attr.data-target]="'#myModal' + post.id">
-                                        Borrar
-                                    </button>
-    
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin ntrada individual -->
-        </div>
-    </div>
+        <!-- Listado de entradas -->
+        <post-list [posts]="posts"
+                   [identity]="identity"
+                   [url]="url"></post-list>
 
+    </div>
 </div>
 
